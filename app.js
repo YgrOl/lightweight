@@ -1,4 +1,7 @@
 import express from 'express';
+import  details from './data/details.json'
+
+const BASE_DETAIL_URL = '/api/v1/details'
 
 const PORT = 3000;
 const server = express();
