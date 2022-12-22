@@ -1,6 +1,12 @@
 import express from 'express';
+import  details from './data/details.json'
+import _ from 'lodash'
 
-const PORT = 3000;
+
+
+const BASE_DETAIL_URL = '/api/v1/details'
+
+const PORT = 5000;
 const server = express();
 
 console.log ("Hello, world!");
@@ -15,3 +21,17 @@ server.listen(PORT, () => {
     console.log('Server has been started on port '+ PORT)
 })
 
+server.get(BASE_DETAIL_URL, (req,res) =>{
+    res.json(details)
+})
+
+
+server.get(BASE_DETAIL_URL + '/:id', (req, res) => {
+    const id = req.params.id
+    const detail = _.find(details, detail => detail.id === id)
+    if (detail){
+        res.json(detail)
+    }else {
+        res.send('Detail not found')
+    }
+})
