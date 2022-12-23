@@ -1,6 +1,6 @@
 import express from 'express';
-import  details from './data/details.json';
 import _ from 'lodash';
+import  details from '../data/details.json'
 
 
 const router = express.Router();
