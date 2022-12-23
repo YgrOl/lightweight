@@ -17,6 +17,7 @@ router.get('/:id', (req, res) => {
     if (detail){
         res.json(detail)
     }else {
+        console.log('not found')
         res.send('Detail not found')
     }
 })
