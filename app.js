@@ -3,7 +3,7 @@ import  details from './data/details.json'
 import _ from 'lodash'
 import ItemRouter from './routes/ItemRoute';
 import morgan from 'morgan'
-
+import bodyParser from 'body-parser';
 
 
 
@@ -13,6 +13,9 @@ const PORT = 5000;
 const server = express();
 
 server.use(morgan('tiny'));
+
+
+server.use(bodyParser.json())
 
 
 

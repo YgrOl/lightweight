@@ -6,8 +6,21 @@ import  details from '../data/details.json'
 const router = express.Router();
 
 
+let detailsArray = details;
+
+
+
 router.get('/', (req,res) =>{
-    res.json(details)
+
+
+
+    res.json(detailsArray)
+})
+
+
+router.post('/',(req,res) =>{
+    detailsArray.push(req.body)
+    res.status(200).send("OK")
 })
 
 
