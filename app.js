@@ -4,7 +4,7 @@ import _ from 'lodash'
 import ItemRouter from './routes/ItemRoute';
 import morgan from 'morgan'
 import bodyParser from 'body-parser';
-
+import path from 'path';
 
 
 const BASE_DETAIL_URL = '/api/v1/details'
@@ -16,10 +16,17 @@ server.use(morgan('tiny'));
 
 
 server.use(bodyParser.json())
+server.set('views',path.join('views'))
+server.set('view engine','ejs')
 
 
 
 server.use(BASE_DETAIL_URL, ItemRouter);
+server.get('/', (req,res) =>{
+    res.render('index')
+})
+
+
 
 console.log ("Hello, world!");
 const message = "Hello node.js";
