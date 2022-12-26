@@ -23,7 +23,7 @@ server.set('view engine','ejs')
 
 server.use(BASE_DETAIL_URL, ItemRouter);
 server.get('/', (req,res) =>{
-    res.render('index')
+    res.render('index',{details})
 })
 
 
