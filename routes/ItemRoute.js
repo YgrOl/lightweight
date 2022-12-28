@@ -4,10 +4,31 @@ import  details from '../data/details.json'
 import mongoose from 'mongoose';
 
 
+const DB_URL = `mongodb+srv://sasha:sldsfefrn@cluster0.wjav5y3.mongodb.net/test`;
+mongoose.set("strictQuery", false);
+const DB_USER = ``;
+const DB_password =``;
 
-const DB_URL = 'mongodb://localhost:27017/lightW';
-const DB_USER = '';
-const DB_password = '';
+
+
+mongoose.connect(DB_URL);
+const db = mongoose.connection
+
+
+db.once('open', () => {
+    console.log('DB')
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -16,12 +37,6 @@ const router = express.Router();
 
 
 let detailsArray = details;
-
-mongoose.connect(DB_URL);
-const db = mongoose.connection;
-db.once('open', () => {
-    console.log('DB CONNECTION IS ESTABLISHED')
-});
 
 
 
